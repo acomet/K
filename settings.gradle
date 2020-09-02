@@ -1,0 +1,3 @@
+include ':xzing'
+include ':app'
+rootProject.name = "K"
