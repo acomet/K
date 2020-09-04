@@ -2,6 +2,9 @@ package com.cat.blue.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.Switch
 import com.cat.blue.R
 import com.cat.blue.bean.User
 import com.cat.blue.utils.DalasCalf
@@ -11,15 +14,77 @@ import com.cat.blue.utils.catIsPhone
 import com.cat.blue.utils2.B
 import com.cat.blue.utils2.mathFans
 import com.cat.indigo.utils.getDeviceHeight
+import kotlinx.coroutines.CoroutineScope
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    private var loginBT: Button? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        loginBT = findViewById(R.id.registerBT)
+        loginBT?.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+            }
+        })
+
+        loginBT?.setOnClickListener() {
+            when (it.id) {
+                0 -> {
+
+                }
+                1 -> println("hello")
+                2 -> println("hi")
+            }
+        }
+
+
+        //loginBT?.setOnTouchListener { view, motionEvent -> false }
+
         // learnList()
         // learnObject()
-        learnVisibility()
+        // learnVisibility()
+        // learnCoroutine()
+
+//        val ok: (Int) -> String = {
+//            (it * 2).toString() // it 可以被推断出是 Int 类型
+//        }
+//
+//        println(ok(100))
+
+
+//        a(::b)
+//        val fb = ::b
+//        fb(10, 20)
+//
+//        // 可以直接为一个接收函数类型的函数传递一个函数
+//        a(fun(x: Int, y: Int): Int {
+//            return x + y
+//        })
+//
+//        // 直接把一个函数复制给一个变量
+//        val ffb = fun(name: String): String {
+//            return name.toUpperCase(Locale.ROOT)
+//        }
+    }
+
+    private fun learnCoroutine() {
+        //val coroutineScope = CoroutineScope(this)
+    }
+
+    fun a(f: (x: Int, y: Int) -> Int): Int {
+        return 8
+    }
+
+    fun b(x: Int, y: Int): Int {
+        return x * y
+    }
+
+    fun setOnClickListener(onClick: (v: View) -> Unit) {
+        //this.onClick = onClick
     }
 
     private fun learnVisibility() {
