@@ -7,11 +7,11 @@ import android.widget.Button
 import android.widget.Switch
 import com.cat.blue.R
 import com.cat.blue.bean.User
-import com.cat.blue.utils.DalasCalf
 import com.cat.blue.utils.L
 import com.cat.blue.utils.catIsEmpty
 import com.cat.blue.utils.catIsPhone
 import com.cat.blue.utils2.B
+import com.cat.blue.utils2.DalasCalf
 import com.cat.blue.utils2.mathFans
 import com.cat.indigo.utils.getDeviceHeight
 import kotlinx.coroutines.CoroutineScope
