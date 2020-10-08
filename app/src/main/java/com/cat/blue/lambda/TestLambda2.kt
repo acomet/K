@@ -31,9 +31,9 @@ fun main() {
 //    }
 
     // 5
-    alpha3(5, 6) { a, b ->
-        println("返回多个结果的另类操作，神奇吧 a=$a, b=$b")
-    }
+//    alpha3(5, 6) { a, b ->
+//        println("返回多个结果的另类操作，神奇吧 a=$a, b=$b")
+//    }
 
     // 6
 //    alpha4(8, 10) { a, b ->
@@ -46,6 +46,47 @@ fun main() {
 //        println("--003--$it")
 //    }.also {
 //        println("--004--$it")
+//    }
+
+//    nothing(6){
+//        println("hello world")
+//    }
+
+//    alpha0(6){
+//        println(it)
+//    }
+
+    alpha1(6) {
+        println(it)
+        "HELLO REL"
+    }
+
+//    alpha11(3000) {
+//        "结果是${(it + it)}"
+//    }
+
+//    alpha2(6, 5) { a, b ->
+//        (a - b) * 100000
+//    }
+//
+//    alpha2(6, 5) { a, _ ->
+//        a * 100000
+//    }
+
+//    alpha3(9, 10) { alpha, beta ->
+//        println("alpha=$alpha, beta=$beta")
+//    }
+//    alpha4(10, 20) { arg0, arg1 ->
+//        println("arg0=$arg0, arg1=$arg1")
+//        1000
+//    }.apply {
+//        println(this)
+//    }
+
+//    alpha4(100, 20) { a, b ->
+//        a - b
+//    }.let {
+//        println(it)
 //    }
 }
 
@@ -68,17 +109,23 @@ fun alpha2(x: Int, y: Int, predicate: (Int, Int) -> Int) {
     println(result)
 }
 
+fun alpha11(x: Int, predicate: (Int) -> String) {
+    println("alpha11 原始x=$x, res=${predicate(x)}")
+}
+
 // 方法参数有lambda，lambda有参数，有返回值， 方法整体没有返回值
 fun alpha1(x: Int, predicate: (Int) -> String) {
     println("alpha1原始x=$x")
-    val result = predicate.invoke(x + 100 + 200 + 300) // 在这里能拿到lambda的返回值
-    predicate.invoke(x + 100 + 200 + 300)
+    val result = predicate(x + 100 + 200 + 300) // 在这里能拿到lambda的返回值
+    println("result = $result")
+    // predicate.invoke(x + 100 + 200 + 300)
 }
 
 // 方法参数有lambda，lambda有参数，无返回值， 方法整体没有返回值【一般用于处理回调】
 fun alpha0(x: Int, callback: (Int) -> Unit) {
     println("alpha0原始x=$x")
-    val result = x + 100 + 200 + 300
+    val result = x + 100 * 200 / 3 - 100
+    // 回调经过各种风骚操作之后得到的结果
     callback(result)
 }
 
